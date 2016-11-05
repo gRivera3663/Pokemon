@@ -6,11 +6,5 @@
 
 using namespace std;
 
-enum class Element;
 
-class Pokemon;
-class Fire;
-class Water;
-class Grass;
-
-Pokemon make_pokemon(Element type, string name);
+// Move the contructors to this file.

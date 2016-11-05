@@ -18,9 +18,9 @@ protected:
     int attack = 10, defense = 10, specialAttack = 10, specialDefense = 10, speed = 10;
     
 public:
-    void constructor(int index){}
-    void destructor() {}
-    
+	// You need a constructor, but constructors are not called "constructor".
+	// Also, it will need to take an int parameter.
+	
     string get_name() {return name;}
     int get_level() {return level;}
     int get_hpMax() {return hpMax;}
@@ -32,7 +32,7 @@ public:
 class Water: public Pokemon
 {
 public:
-    void water_stats()
+    Water()
     {
         hp = hp + 2;
         attack = attack - 2;
@@ -46,7 +46,7 @@ public:
 class Grass: public Pokemon
 {
 public:
-    void grass_stats()
+    Grass()
     {
         hp = hp - 3;
         attack = attack - 2;
@@ -60,7 +60,7 @@ public:
 class Fire: public Pokemon
 {
 public:
-    void fire_stats()
+    Fire()
     {
         hp = hp + 1;
         attack = attack + 2;
@@ -71,30 +71,6 @@ public:
     }
 };
 
-Pokemon make_pokemon(Element type, string name)
-{
-    Pokemon *creature;
-    creature->name = name;
-    
-    if (type == Element::Fire)
-    {
-        *creature = *new Fire;
-        creature->constructor(1);
-        static_cast<Fire*>(creature)->fire_stats();
-    }
-    else if (type == Element::Water)
-    {
-        *creature = *new Water;
-        creature->constructor(2);
-        static_cast<Water*>(creature)->water_stats();
-    }
-    else if (type == Element::Grass)
-    {
-        *creature = *new Grass;
-        creature->constructor(3);
-        static_cast<Grass*>(creature)->grass_stats();
-    }
-    return *creature;
-}
+
 
 #endif // pokemon.h
