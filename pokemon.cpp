@@ -1,16 +1,37 @@
 // pokemon.cpp
 
 #include"pokemon.h"
-#include<iostream>
-#include<string>
 
 using namespace std;
 
-enum class Element;
+// put constructors here
 
-class Pokemon;
-class Fire;
-class Water;
-class Grass;
+Water::Water() : Pokemon(1)
+{
+    hp = hp + 2;
+    attack = attack - 2;
+    defense = defense + 2;
+    specialAttack = specialAttack - 1;
+    specialDefense = specialDefense + 4;
+    speed = speed - 1;
+}
 
-Pokemon make_pokemon(Element type, string name);
+Grass::Grass() : Pokemon(2)
+{
+    hp = hp - 3;
+    attack = attack - 2;
+    defense = defense + 0;
+    specialAttack = specialAttack - 3;
+    specialDefense = specialDefense + 0;
+    speed = speed - 2;
+}
+
+Fire::Fire() : Pokemon(3)
+{
+    hp = hp + 1;
+    attack = attack + 2;
+    defense = defense - 2;
+    specialAttack = specialAttack + 4;
+    specialDefense = specialDefense - 2;
+    speed = speed + 2;
+}

@@ -13,14 +13,38 @@
 
 using namespace std;
 
+Pokemon make_pokemon(Element type, string name);
+
 int main(void)
 {
-    string myDoodsName = "Charmander";
-    Pokemon Char = make_pokemon(Element::Fire, myDoodsName);
+    string pokeName = "Charmander";
+    Pokemon Char = make_pokemon(Element::Fire, pokeName);
     
-    int myDoodsHealth = Char.get_hp();
+    int pokeHealth = Char.get_hp();
     
-    cout << "My " << myDoodsHealth << "'s health is " << myDoodsHealth << " ." << endl;
+    cout << "My " << pokeName << "'s health is " << pokeHealth << " ." << endl;
     
     return 0;
+}
+
+Pokemon make_pokemon(Element type, string name)
+{
+    Pokemon *creature;
+    
+    if (type == Element::Fire)
+    {
+        *creature = *new Fire;
+    }
+    else if (type == Element::Water)
+    {
+        *creature = *new Water;
+    }
+    else if (type == Element::Grass)
+    {
+        *creature = *new Grass;
+    }
+    
+    creature->name = name;
+    
+    return *creature;
 }
