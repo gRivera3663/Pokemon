@@ -2,6 +2,7 @@
 #define POKEMON_H
 
 #include <string>
+#include <fstream>
 
 enum class element {
     fire = 0, water = 1, grass = 2
