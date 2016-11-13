@@ -19,9 +19,13 @@ std::ostream& operator<< (std::ostream &out, Pokemon &pokemon)
 
 void Pokemon::write()
 {
-	ifstream file;
-	string fileName = Pokemon.id;
-	
+	std::string fileName = std::to_string(id) + ".dat";
+	std::ofstream datFile;
+	datFile.open(fileName);
+
+	datFile << *this;
+
+	datFile.close();
 }
 
 Fire::Fire(int index) : Pokemon(index){
