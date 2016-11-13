@@ -19,8 +19,10 @@ struct PokeEntry
 
 class Pokemon {
 private:
+	PokeEntry userEntry;
 	std::string name;
 	int level = 1;
+	int id;
 protected:
 	int maxHP = 20;
 	int currentHP = maxHP;
@@ -46,7 +48,8 @@ public:
 		return currentHP;
 	}
 	friend Pokemon* make_pokemon(element type, std::string name);
-	friend ostream& operator<< (ostream &out, const Pokemon *monster); 
+	friend ostream& operator<< (ostream &out, Pokemon &pokemon);
+	void write();
 };
 
 class Fire: public Pokemon {
